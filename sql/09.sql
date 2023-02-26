@@ -4,3 +4,7 @@
  * HINT:
  * Use `unnest(special_features)` in a subquery.
  */
+
+
+select feat as special_features, count(*) from (select feat
+from (select title, unnest(special_features) as feat from film)t)b group by special_features order by special_features;

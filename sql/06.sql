@@ -5,3 +5,5 @@
  * HINT:
  * This can be done by either using a LEFT JOIN or by using the NOT IN clause and a subquery.
  */
+
+select distinct(title) from film where film_id not in (select distinct(film_id) from inventory order by film_id) order by title;

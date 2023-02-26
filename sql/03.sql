@@ -12,5 +12,4 @@
  */
 
 
--- top 5
-(select film_id FROM film JOIN inventory USING (film_id) JOIN rental using (inventory_id) JOIN payment using (rental_id) GROUP BY film_id ORDER BY sum(amount) DESC limit 5);
+select distinct(customer_id) from film join inventory using (film_id) join rental using (inventory_id) join customer using (customer_id) where film_id in (select film_id FROM film JOIN inventory USING (film_id) JOIN rental using (inventory_id    ) JOIN payment using (rental_id) GROUP BY film_id ORDER BY sum(amount) DESC limit 5) order by customer_id;

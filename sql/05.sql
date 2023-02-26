@@ -9,3 +9,5 @@
  * HINT:
  * This can be solved using either a LEFT JOIN or the NOT IN operator.
  */
+
+select actor.last_name, actor.first_name from actor where (actor.last_name || actor.first_name) not in (select customer.last_name || customer.first_name from customer)  order by actor.last_name, actor.first_name;
